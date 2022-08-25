@@ -45,42 +45,42 @@
       <div data-id="9am" class="row">
         <div class="col-1">9am</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="10am" class="row">
         <div class="col-1">10am</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="11am" class="row">
         <div class="col-1">11am</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="12pm" class="row">
         <div class="col-1">12pm</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="1pm" class="row">
         <div class="col-1">1pm</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="2pm" class="row">
         <div class="col-1">2pm</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="3pm" class="row">
         <div class="col-1">3pm</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
       <div data-id="4pm" class="row border-bottom border-dark">
         <div class="col-1">4pm</div>
         <textarea class="col-10 todo"></textarea>
-        <button class="col-1 bg-primary save">save</button>
+        <button class="col-1 bg-info save">save</button>
       </div>
     </div>
 
@@ -88,13 +88,13 @@
     <script>
       $('.container').on('click', '.save', function() {
         var parentId = $(this).parent().attr('data-id');
-        var todo = $(this).prev().val();
-        localStorage.setItem(parentId, todo);
+        var name = $(this).prev().val();
+        localStorage.setItem(parentId, name);
       });
-      $('.text').each(function() {
+      $('.todo').each(function() {
         var parentId = $(this).parent().attr('data-id');
-        var todo = localStorage.getItem(parentId);
-        $(this).text(todo);
+        var name = localStorage.getItem(parentId);
+        $(this).text(name);
       });
       var now = moment().format('MMM Do, YYYY hh:mm:ss');
       $('#currentDay').text(now);
