@@ -5,7 +5,7 @@
 3. [Credits](#credits)
 
 ## Description
-[Work Day Scheduler](https://christian-hoffman.github.io/work-day-scheduler/)
+<a href='https://christian-hoffman.github.io/work-day-scheduler/' target='_blank' rel='noopener'>Work Day Scheduler</a>
 <br>
 The Work Day Scheduler was built in order to help the user plan their hour by hour tasks during the work day. \
 User may enter hourly tasks into the text area where they then may save that change by clicking the SAVE button on the right side. \
