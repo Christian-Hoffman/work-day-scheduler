@@ -23,6 +23,7 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js">
   </script>
     <!-- <link rel="stylesheet" href="./assets/" /> -->
+    <!-- external css sheet not needed but kept incase a use was found -->
     <title>Work Day Scheduler</title>
     <style>
       .row > div {
@@ -41,7 +42,7 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <!-- each is a time block, textarea to add todo items that get saved in localStorage (see line 89), and a save button -->
       <div data-id="9" class="row">
         <div class="col-1">9am</div>
         <textarea class="col-10 todo"></textarea>
@@ -86,6 +87,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
+      // saves and stores todo items in schedule in localStorage
       $('.container').on('click', '.save', function() {
         var parentId = $(this).parent().attr('data-id');
         var name = $(this).prev().val();
@@ -96,16 +98,25 @@
         var name = localStorage.getItem(parentId);
         $(this).text(name);
       });
+      // sets current time at top of screen
       var now = moment().format('MMM Do, YYYY hh:mm:ss');
       $('#currentDay').text(now);
 
       // var hours = moment().hour();
-
-      // $('.todo').each(function() {
-      //   if(parentId)
-      // })
-
-
+      var hours = '10';
+      // sets current hour to lightgreen, past hours to lightgrey, and future hours to indianred
+      $('.todo').each(function() {
+        var parentId = $(this).parent().attr('data-id');
+        if(parentId === hours) {
+          $(this).attr('style', 'background: lightgreen;');
+        }
+        if(parentId < hours) {
+          $(this).attr('style', 'background: lightgrey;');
+        }
+        if(parentId > hours) {
+          $(this).attr('style', 'background: indianred;');
+        }
+      });
 
     </script>
 
